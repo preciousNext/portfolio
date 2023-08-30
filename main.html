@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="captcha" id="captcha">
+        Click the button to verify that you are not a robot.
+        <button id="verifyButton">Click to verify</button>
+      </div>
+      <div class="succesMessage">
+        Verification successful! You are not a robot.
+      </div>
+    </section>
+    <script>
+      var captcha = document.getElementById("captcha");
+      var verifyButton = document.getElementById("verifyButton");
+      var succesMessage = document.querySelector(".succesMessage");
+
+      verifyButton.addEventListener("click", function () {
+        verifyButton.disabled = true;
+        captcha.style.opacity = 0.5;
+
+        setTimeout(function () {
+          captcha.style.display = "none";
+          verifyButton.style.display = "none";
+          succesMessage.style.display = "block";
+        }, 5000);
+        setTimeout(function () {
+          window.location.href = "index.html";
+        }, 9000);
+      });
+    </script>
+  </body>
+</html>
